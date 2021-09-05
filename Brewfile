@@ -7,4 +7,5 @@ brew "watchman"
 brew "typescript"
 brew "yarn"
 brew "gpg"
+brew "ripgrep"
 
