@@ -8,4 +8,5 @@ brew "typescript"
 brew "yarn"
 brew "gpg"
 brew "ripgrep"
+brew "tree"
 
