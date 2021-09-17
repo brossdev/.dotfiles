@@ -1,22 +1,20 @@
 " Specify a directory for plugins For Neovim: stdpath('data') . '/plugged' Avoid using standard Vim directory names like 'plugin'
  call plug#begin('~/.config/nvim/plugged') 
- Plug 'haishanh/night-owl.vim'
- Plug 'shaunsingh/nord.nvim' 
- Plug 'fatih/vim-go', {'do': 'GoInstallBinaries'}
- Plug 'leafgarland/typescript-vim' 
- Plug 'neoclide/coc.nvim', { 'branch': 'release'}
- Plug 'jparise/vim-graphql'
+" Plug 'fatih/vim-go', {'do': 'GoInstallBinaries'}
+" Plug 'neoclide/coc.nvim', { 'branch': 'release'}
  Plug 'styled-components/vim-styled-components', { 'branch': 'main'}
  Plug 'nvim-lua/popup.nvim' 
  Plug 'nvim-lua/plenary.nvim'
  Plug 'nvim-telescope/telescope.nvim'
  Plug 'nvim-telescope/telescope-fzy-native.nvim'
+ Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
  Plug 'kyazdani42/nvim-web-devicons' " for file icons 
  Plug 'kyazdani42/nvim-tree.lua'
  Plug 'jiangmiao/auto-pairs'
  Plug 'sheerun/vim-polyglot'
  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
  Plug 'neovim/nvim-lspconfig'
+ Plug 'hrsh7th/nvim-compe'
  Plug 'dracula/vim'
 
  call plug#end() 
