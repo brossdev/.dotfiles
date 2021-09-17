@@ -16,6 +16,7 @@
  Plug 'neovim/nvim-lspconfig'
  Plug 'hrsh7th/nvim-compe'
  Plug 'dracula/vim'
+ Plug 'nvim-lua/lsp-status.nvim'
 
  call plug#end() 
 
