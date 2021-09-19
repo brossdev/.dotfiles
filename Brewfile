@@ -9,5 +9,6 @@ brew "typescript"
 brew "yarn"
 brew "gpg"
 brew "ripgrep"
+brew "ruby"
 brew "tree"
 
