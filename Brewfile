@@ -1,6 +1,7 @@
 # Brew Config Files
 
 brew "awscli"
+brew "cocoapods"
 brew "neovim"
 brew "nvm"
 brew "watchman"
