@@ -11,4 +11,6 @@ brew "gpg"
 brew "ripgrep"
 brew "ruby"
 brew "tree"
+tap "aws/tap"
+brew "aws-sam-cli"
 
