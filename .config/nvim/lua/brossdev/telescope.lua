@@ -49,7 +49,7 @@ require('telescope').load_extension('fzy_native')
 function own_search_dotfiles()
     require("telescope.builtin").find_files({
         prompt_title = "< VimRC >",
-        cwd = "$HOME/dotfiles/",
+        cwd = "$HOME/.dotfiles/",
     })
 end
 
