@@ -6,8 +6,9 @@
  Plug 'nvim-lua/popup.nvim' 
  Plug 'nvim-lua/plenary.nvim'
  Plug 'nvim-telescope/telescope.nvim'
- Plug 'nvim-telescope/telescope-fzy-native.nvim'
- Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
+ Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+" Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
+ Plug 'NTBBloodbath/galaxyline.nvim' , {'branch': 'main'}
  Plug 'kyazdani42/nvim-web-devicons' " for file icons 
  Plug 'kyazdani42/nvim-tree.lua'
  Plug 'jiangmiao/auto-pairs'
@@ -15,10 +16,9 @@
  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
  Plug 'neovim/nvim-lspconfig'
  Plug 'hrsh7th/nvim-compe'
- Plug 'dracula/vim'
  Plug 'nvim-lua/lsp-status.nvim'
  Plug 'tpope/vim-fugitive'
-
+ Plug 'dracula/vim', { 'as': 'dracula' }
  call plug#end() 
 
  
@@ -44,11 +44,8 @@
 
 " Nvim Setup
 "
-let g:nvim_tree_ignore = [ '.git', 'node_modules', '.cache' ] "empty by default
-let g:nvim_tree_gitignore = 1 "0 by default
-let g:nvim_tree_quit_on_open = 1 "0 by default, closes the tree when you open a file
+let g:nvim_tree_quit_on_open = 0 "0 by default, closes the tree when you open a file
 let g:nvim_tree_indent_markers = 1 "0 by default, this option shows indent markers when folders are open
-let g:nvim_tree_hide_dotfiles = 1 "0 by default, this option hides files and folders starting with a dot `.`
 let g:nvim_tree_git_hl = 1 "0 by default, will enable file highlight for git attributes (can be used without the icons).
 let g:nvim_tree_highlight_opened_files = 1 "0 by default, will enable folder and file icon highlight for opened files/directories.
 let g:nvim_tree_root_folder_modifier = ':~' "This is the default. See :help filename-modifiers for more options

@@ -1,7 +1,11 @@
 local gl = require 'galaxyline'
 local utils = require 'brossdev.utils'
 local condition = require 'galaxyline.condition'
-local diagnostic = require 'galaxyline.provider_diagnostic'
+-- local diagnostic = require 'galaxyline.provider_diagnostic'
+local diagnostic = require("galaxyline.providers.diagnostic")
+local fileinfo = require("galaxyline.providers.fileinfo")
+-- Version control
+local vcs = require("galaxyline.providers.vcs")
 
 local gls = gl.section
 gl.short_line_list = { 'packer', 'NvimTree', 'Outline', 'LspTrouble' }
@@ -135,7 +139,7 @@ local function get_basename(file)
 end
 
 local GetGitRoot = function()
-    local git_dir = require('galaxyline.provider_vcs').get_git_dir()
+    local git_dir = vcs.get_git_dir()
     if not git_dir then
         return ''
     end
@@ -204,7 +208,7 @@ gls.left[2] = {
         end, 'FileIcon' },
         condition = buffer_not_empty,
         highlight = {
-            require('galaxyline.provider_fileinfo').get_file_icon,
+            fileinfo.get_file_icon,
             colors.section_bg,
         },
     },
@@ -418,7 +422,7 @@ gls.short_line_left[1] = {
             )
         end,
         highlight = {
-            require('galaxyline.provider_fileinfo').get_file_icon,
+            fileinfo.get_file_icon,
             colors.section_bg,
         },
     },
