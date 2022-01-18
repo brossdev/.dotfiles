@@ -19,6 +19,8 @@
  Plug 'nvim-lua/lsp-status.nvim'
  Plug 'tpope/vim-fugitive'
  Plug 'dracula/vim', { 'as': 'dracula' }
+ Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
+ Plug 'jose-elias-alvarez/null-ls.nvim'
  call plug#end() 
 
  
