@@ -13,4 +13,5 @@ brew "ruby"
 brew "tree"
 tap "aws/tap"
 brew "aws-sam-cli"
-
+brew "tap hashicorp/tap"
+brew "hashicorp/tap/terraform"
