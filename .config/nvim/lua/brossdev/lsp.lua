@@ -22,7 +22,7 @@ local on_attach = function(client, bufnr)
 
   -- Make this more dry to avoid duplication above
 
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
+-- See `:help vim.lsp.*` for documentation on any of the below functions
   buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
@@ -40,6 +40,18 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
   buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+
+
+-- debugging
+  buf_set_keymap('n', '<F5>', ":lua require'dap'.continue()<CR>", opts)
+  buf_set_keymap('n', '<F3>', ":lua require'dap'.step_over()<CR>", opts)
+  buf_set_keymap('n', '<F2>', ":lua require'dap'.step_into()<CR>", opts)
+  buf_set_keymap('n', '<F12>', ":lua require'dap'.step_out()<CR>", opts)
+  buf_set_keymap('n', '<Leader>b', ":lua require'dap'.toggle_breakpoint()<CR>", opts)
+  buf_set_keymap('n', '<Leader>B', ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", opts)
+  buf_set_keymap('n', '<Leader>lp', ":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>", opts)
+  buf_set_keymap('n', '<Leader>dr', ":lua require'dap'.repl.open()<CR>", opts)
+  buf_set_keymap('n', '<Leader>dt', ":lua require'dap-go'.debug_test()<CR>", opts)
 end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
@@ -141,6 +153,16 @@ nvim_lsp.tsserver.setup({
         vim.api.nvim_buf_set_keymap(bufnr, 'n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
         vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
         vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+-- debugging
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', '<F5>', ":lua require'dap'.continue()<CR>", opts)
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', '<F3>', ":lua require'dap'.step_over()<CR>", opts)
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', '<F2>', ":lua require'dap'.step_into()<CR>", opts)
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', '<F12>', ":lua require'dap'.step_out()<CR>", opts)
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>b', ":lua require'dap'.toggle_breakpoint()<CR>", opts)
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>B', ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", opts)
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>lp', ":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>", opts)
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>dr', ":lua require'dap'.repl.open()<CR>", opts)
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>dt', ":lua require'dap-go'.debug_test()<CR>", opts)
     end,
 })
 

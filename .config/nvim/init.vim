@@ -21,6 +21,15 @@
  Plug 'dracula/vim', { 'as': 'dracula' }
  Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
  Plug 'jose-elias-alvarez/null-ls.nvim'
+
+ " debugging
+ Plug 'Pocco81/DAPInstall.nvim'
+ Plug 'mfussenegger/nvim-dap'
+ Plug 'leoluz/nvim-dap-go'
+ Plug 'rcarriga/nvim-dap-ui'
+ Plug 'theHamsta/nvim-dap-virtual-text'
+ Plug 'nvim-telescope/telescope-dap.nvim'
+
  call plug#end() 
 
  

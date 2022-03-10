@@ -1,5 +1,6 @@
-require('brossdev.telescope')
 require('brossdev.lsp')
 require('brossdev.compe')
 require('brossdev.statusline')
+require('brossdev.dbg')
 require('brossdev.nvim-tree')
+require('brossdev.telescope')
