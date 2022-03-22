@@ -126,11 +126,6 @@ let g:nvim_tree_icons = {
     \   }
     \ }
 
-
-" a list of groups can be found at `:help nvim_tree_highlight`
-highlight NvimTreeFolderIcon guibg=blue
-
-
 lua require('brossdev')
 " require('nvim-autopairs').setup()
 " Key Maps
