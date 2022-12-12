@@ -9,6 +9,7 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export GOPATH=$HOME/.go
 export PATH=$PATH:$GOPATH/bin
+export PATH=$HOME/.local/bin:$PATH
 PATH="$PATH":"$HOME/.local/scripts/"
 
 # homebrew on mac

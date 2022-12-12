@@ -30,7 +30,6 @@
 
  call plug#end() 
 
-
  let g:tokyonight_style = 'night'
  
 " Config Section 
