@@ -8,7 +8,6 @@ require'nvim-tree'.setup {
   open_on_tab         = false,
   hijack_cursor       = false,
   update_cwd          = false, 
-  create_in_closed_folder = true, 
   respect_buf_cwd = true,
   hijack_directories   = {
     enable = true,

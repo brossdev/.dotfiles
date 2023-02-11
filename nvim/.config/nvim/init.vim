@@ -67,8 +67,9 @@ nnoremap <leader>y "=y
 nnoremap <leader>Y gg"+yG
 nnoremap <C-p> :lua require('telescope.builtin').git_files()<CR>
 nnoremap <leader>n :NvimTreeFindFile<CR>
+nnoremap <leader>p __dP
 nnoremap <C-n> :NvimTreeToggle<CR>
-nnoremap <leader>r :NvimTreeRefresh<CR>
+nnoremap <leader>r :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
 nnoremap <Leader>s :update<CR>
 tnoremap  <Esc> <C-\><C-n>
 

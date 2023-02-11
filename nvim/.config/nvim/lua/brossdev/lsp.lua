@@ -122,8 +122,8 @@ nvim_lsp.tsserver.setup({
             require_confirmation_on_move = false,
             watch_dir = nil,
         })
-        client.resolved_capabilities.document_formatting = false
-        client.resolved_capabilities.document_range_formatting = false
+        client.server_capabilities.document_formatting = false
+        client.server_capabilities.document_range_formatting = false
 
         -- required to fix code action ranges and filter diagnostics
         ts_utils.setup_client(client)
@@ -174,7 +174,7 @@ null_ls.setup({
             null_ls.builtins.formatting.prettier -- prettier, eslint, eslint_d, or prettierd
         },
             on_attach = function(client)
-        if client.resolved_capabilities.document_formatting then
+        if client.server_capabilities.document_formatting then
             vim.cmd([[
             augroup LspFormatting
                 autocmd! * <buffer>
