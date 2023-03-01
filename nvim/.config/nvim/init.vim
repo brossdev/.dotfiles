@@ -27,6 +27,7 @@
  Plug 'rcarriga/nvim-dap-ui'
  Plug 'theHamsta/nvim-dap-virtual-text'
  Plug 'nvim-telescope/telescope-dap.nvim'
+ Plug 'David-Kunz/jester'
 
  call plug#end() 
 
@@ -50,6 +51,7 @@
  set signcolumn=yes
  set relativenumber
  set cursorline
+ set splitright
 
 " Nvim Setup
 let g:nvim_tree_refresh_wait = 500 "1000 by default, control how often the tree can be refreshed, 1000 means the tree can be refresh once per 1000ms.
@@ -73,4 +75,17 @@ nnoremap <leader>r :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
 nnoremap <Leader>s :update<CR>
 tnoremap  <Esc> <C-\><C-n>
 
-
+" Debugging  and testing Key Maps
+nnoremap <F5> :lua require('dap').continue()<CR>
+nmap <F2> :lua require('dap').step_into()<CR>
+nmap <F3> :lua require('dap').step_over()<CR>
+nmap <F12> :lua require('dap').step_out()<CR>
+nmap <leader>b :lua require('dap').toggle_breakpoint()<CR>
+nmap <leader>B :lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>
+nmap <leader>lp :lua require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
+nmap <leader>dr :lua require('dap').repl.open()<CR>
+nmap <leader>gdt :lua require('dap-go').debug_test()<CR>
+nmap <leader>jt :lua require('jester').run()<CR>
+nmap <leader>jdt :lua require('jester').debug()<CR>
+nmap <leader>jf :lua require('jester').run_file()<CR>
+nmap <leader>jdf :lua require('jester').debug_file()<CR>

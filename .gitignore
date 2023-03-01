@@ -1,3 +1,4 @@
 .DS_Store
 /nvim/.config/nvim/plugged
 /nvim/.config/configstore
+/nvim/.config/dlv

@@ -3,11 +3,8 @@
 --     -- "Big Tech" "Cash Money" Johnson
 -- end
 -- 
--- require'lspconfig'.tsserver.setup{ on_attach=on_attach }
-
 -- lua << EOF
 local nvim_lsp = require('lspconfig')
-
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -122,8 +119,8 @@ nvim_lsp.tsserver.setup({
             require_confirmation_on_move = false,
             watch_dir = nil,
         })
-        client.server_capabilities.document_formatting = false
-        client.server_capabilities.document_range_formatting = false
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.documentRangeFormatting = false
 
         -- required to fix code action ranges and filter diagnostics
         ts_utils.setup_client(client)
@@ -162,25 +159,32 @@ nvim_lsp.tsserver.setup({
         vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>B', ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", opts)
         vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>lp', ":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>", opts)
         vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>dr', ":lua require'dap'.repl.open()<CR>", opts)
-        vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>dt', ":lua require'dap-go'.debug_test()<CR>", opts)
     end,
 })
 
 local null_ls = require("null-ls")
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
         sources = {
-            null_ls.builtins.diagnostics.eslint, -- eslint or eslint_d
-            null_ls.builtins.code_actions.eslint, -- eslint or eslint_d
-            null_ls.builtins.formatting.prettier -- prettier, eslint, eslint_d, or prettierd
+ --           null_ls.builtins.diagnostics.eslint, -- eslint or eslint_d
+--            null_ls.builtins.code_actions.eslint, -- eslint or eslint_d
+            null_ls.builtins.formatting.prettier, -- prettier, eslint, eslint_d, or prettierd
+            null_ls.builtins.formatting.gofumpt,
+            null_ls.builtins.formatting.goimports,
+            null_ls.builtins.formatting.terraform_fmt,
+            null_ls.builtins.diagnostics.terraform_validate
         },
-            on_attach = function(client)
-        if client.server_capabilities.document_formatting then
-            vim.cmd([[
-            augroup LspFormatting
-                autocmd! * <buffer>
-                autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
-            augroup END
-            ]])
+    -- you can reuse a shared lspconfig on_attach callback here
+    on_attach = function(client, bufnr)
+        if client.supports_method("textDocument/formatting") then
+            vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+            vim.api.nvim_create_autocmd("BufWritePre", {
+                group = augroup,
+                buffer = bufnr,
+                callback = function()
+                    vim.lsp.buf.format({bufnr = bufnr})
+                end,
+            })
         end
     end,
 })
