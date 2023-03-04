@@ -167,7 +167,7 @@ null_ls.setup({
         sources = {
  --           null_ls.builtins.diagnostics.eslint, -- eslint or eslint_d
 --            null_ls.builtins.code_actions.eslint, -- eslint or eslint_d
-            null_ls.builtins.formatting.prettierd, -- prettier, eslint, eslint_d, or prettierd
+            null_ls.builtins.formatting.prettier, -- prettier, eslint, eslint_d, or prettierd
             null_ls.builtins.formatting.gofumpt,
             null_ls.builtins.formatting.goimports,
             null_ls.builtins.formatting.terraform_fmt,
