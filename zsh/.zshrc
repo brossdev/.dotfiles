@@ -16,9 +16,9 @@ PATH="$PATH":"$HOME/.local/scripts/"
 # export PATH=/opt/homebrew/bin:$PATH
 
 export ZSH="$HOME/.oh-my-zsh"
-eval "$(fnm env --use-on-cd)"
+# eval "$(fnm env --use-on-cd)"
 # Path to your oh-my-zsh installation.
-export ZSH="/home/bobby/.oh-my-zsh"
+# export ZSH="/home/bobby/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -119,7 +119,7 @@ source $ZSH/oh-my-zsh.sh
 GPG_TTY=$(tty)
 export GPG_TTY=$(tty)
 
-source ~/.zsh_profile
+# source ~/.zsh_profile
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -130,3 +130,8 @@ source ~/.zsh_profile
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+export PATH="/home/bobby/.local/share/fnm:$PATH"
+eval "`fnm env`"
+GPG_TTY=$(tty)
+export GPG_TTY=$(tty)
+
