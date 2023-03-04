@@ -89,3 +89,7 @@ nmap <leader>jt :lua require('jester').run()<CR>
 nmap <leader>jdt :lua require('jester').debug()<CR>
 nmap <leader>jf :lua require('jester').run_file()<CR>
 nmap <leader>jdf :lua require('jester').debug_file()<CR>
+
+" Git
+nnoremap <Leader>gfs :G<CR>
+nnoremap <Leader>gfc :Gvdiffsplit!<CR>

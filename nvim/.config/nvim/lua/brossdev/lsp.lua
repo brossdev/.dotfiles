@@ -32,13 +32,13 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-  buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-  buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-  buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
   buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 
-
+  buf_set_keymap(bufnr, 'n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+  buf_set_keymap(bufnr, 'n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+  buf_set_keymap(bufnr, 'n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+  buf_set_keymap(bufnr, 'n', '<space>ll', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
+--
 -- debugging
   buf_set_keymap('n', '<F5>', ":lua require'dap'.continue()<CR>", opts)
   buf_set_keymap('n', '<F3>', ":lua require'dap'.step_over()<CR>", opts)
@@ -145,17 +145,16 @@ nvim_lsp.tsserver.setup({
         vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
         vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
         vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-        vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-        vim.api.nvim_buf_set_keymap(bufnr, 'n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-        vim.api.nvim_buf_set_keymap(bufnr, 'n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-        vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
         vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>ll', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
 -- debugging
         vim.api.nvim_buf_set_keymap(bufnr, 'n', '<F5>', ":lua require'dap'.continue()<CR>", opts)
         vim.api.nvim_buf_set_keymap(bufnr, 'n', '<F3>', ":lua require'dap'.step_over()<CR>", opts)
         vim.api.nvim_buf_set_keymap(bufnr, 'n', '<F2>', ":lua require'dap'.step_into()<CR>", opts)
         vim.api.nvim_buf_set_keymap(bufnr, 'n', '<F12>', ":lua require'dap'.step_out()<CR>", opts)
-        vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>b', ":lua require'dap'.toggle_breakpoint()<CR>", opts)
         vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>B', ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", opts)
         vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>lp', ":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>", opts)
         vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>dr', ":lua require'dap'.repl.open()<CR>", opts)
@@ -168,7 +167,7 @@ null_ls.setup({
         sources = {
  --           null_ls.builtins.diagnostics.eslint, -- eslint or eslint_d
 --            null_ls.builtins.code_actions.eslint, -- eslint or eslint_d
-            null_ls.builtins.formatting.prettier, -- prettier, eslint, eslint_d, or prettierd
+            null_ls.builtins.formatting.prettierd, -- prettier, eslint, eslint_d, or prettierd
             null_ls.builtins.formatting.gofumpt,
             null_ls.builtins.formatting.goimports,
             null_ls.builtins.formatting.terraform_fmt,
