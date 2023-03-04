@@ -11,7 +11,7 @@ export GOPATH=$HOME/.go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$HOME/.local/bin:$PATH
 PATH="$PATH":"$HOME/.local/scripts/"
-
+export PATH="/home/bobby/.local/share/fnm:$PATH"
 # homebrew on mac
 # export PATH=/opt/homebrew/bin:$PATH
 
@@ -20,6 +20,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # Path to your oh-my-zsh installation.
 # export ZSH="/home/bobby/.oh-my-zsh"
 
+GPG_TTY=$(tty)
+export GPG_TTY=$(tty)
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -116,8 +118,6 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-GPG_TTY=$(tty)
-export GPG_TTY=$(tty)
 
 # source ~/.zsh_profile
 #
@@ -130,8 +130,5 @@ export GPG_TTY=$(tty)
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-export PATH="/home/bobby/.local/share/fnm:$PATH"
 eval "`fnm env`"
-GPG_TTY=$(tty)
-export GPG_TTY=$(tty)
 
