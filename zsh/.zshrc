@@ -20,8 +20,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # Path to your oh-my-zsh installation.
 # export ZSH="/home/bobby/.oh-my-zsh"
 
-GPG_TTY=$(tty)
-export GPG_TTY=$(tty)
+export GPG_TTY=$TTY
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
