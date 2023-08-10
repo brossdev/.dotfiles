@@ -15,7 +15,6 @@
  Plug 'hrsh7th/nvim-compe'
  Plug 'nvim-lua/lsp-status.nvim'
  Plug 'tpope/vim-fugitive'
- Plug 'dracula/vim', { 'as': 'dracula' }
  Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
  Plug 'jose-elias-alvarez/null-ls.nvim'
  Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
