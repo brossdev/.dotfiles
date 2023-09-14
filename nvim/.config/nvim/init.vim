@@ -18,6 +18,7 @@
  Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
  Plug 'jose-elias-alvarez/null-ls.nvim'
  Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+ Plug 'rose-pine/neovim', { 'branch': 'main' }
 
  " debugging
  Plug 'Pocco81/DAPInstall.nvim'
@@ -29,15 +30,14 @@
  Plug 'David-Kunz/jester'
 
  call plug#end() 
+lua require('brossdev')
 
- let g:tokyonight_style = 'night'
- 
 " Config Section 
  syntax enable
+  colorscheme tokyonight
  if (has("termguicolors")) 
 	 set termguicolors
  endif 
- colorscheme tokyonight 
  set ruler 
  set number 
  set ruler
@@ -54,8 +54,6 @@
 
 " Nvim Setup
 let g:nvim_tree_refresh_wait = 500 "1000 by default, control how often the tree can be refreshed, 1000 means the tree can be refresh once per 1000ms.
-
-lua require('brossdev')
 
 " Key Maps
 "
