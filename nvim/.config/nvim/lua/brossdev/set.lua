@@ -10,5 +10,7 @@ vim.opt.signcolumn = 'yes'
 vim.opt.relativenumber = true
 vim.opt.cursorline = true
 vim.opt.splitright = true
+vim.opt.smartindent = true
+vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
