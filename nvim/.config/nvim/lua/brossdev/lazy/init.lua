@@ -5,7 +5,6 @@
     branch = "harpoon2",
     dependencies = { "nvim-lua/plenary.nvim" }
 },
-	'folke/trouble.nvim',
 	{
 		'nvim-treesitter/nvim-treesitter',
 		build = ':TSUpdate',
