@@ -124,7 +124,9 @@ export EDITOR="nvim"
 # source ~/.zsh_profile
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
+ alias zshconfig="nvim ~/.dotfiles/zsh"
+ alias vimconfig="nvim ~/.dotfiles/nvim/.config/nvim"
+ alias dotfiles="nvim ~/.dotfiles"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
