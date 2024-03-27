@@ -6,12 +6,12 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-export GOPATH=$HOME/.go
-export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:/usr/local/.go/bin
 export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.cargo/bing:$PATH
 PATH="$PATH":"$HOME/.local/scripts/"
-export PATH="/home/bobby/.local/share/fnm:$PATH"
+export PATH="/home/brossdev/.local/share/fnm:$PATH"
+export PATH="$HOME/.tmuxifier/bin:$PATH"
 # homebrew on mac
 # export PATH=/opt/homebrew/bin:$PATH
 
@@ -95,7 +95,6 @@ plugins=(
     docker
 )
 
-source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -115,7 +114,10 @@ export EDITOR="nvim"
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
+eval "$(fnm env)"
+eval "$(tmuxifier init -)"
 
+source $ZSH/oh-my-zsh.sh
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -132,3 +134,4 @@ export EDITOR="nvim"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
