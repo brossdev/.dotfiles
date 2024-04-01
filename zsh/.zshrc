@@ -10,7 +10,7 @@ export PATH=$PATH:/usr/local/.go/bin
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.cargo/bing:$PATH
 PATH="$PATH":"$HOME/.local/scripts/"
-export PATH="/home/brossdev/.local/share/fnm:$PATH"
+export PATH="/home/bobby/.local/share/fnm:$PATH"
 export PATH="$HOME/.tmuxifier/bin:$PATH"
 # homebrew on mac
 # export PATH=/opt/homebrew/bin:$PATH
