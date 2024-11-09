@@ -1,8 +1,8 @@
 return {
-    "neovim/nvim-lspconfig",
+    "williamboman/mason.nvim",
     dependencies = {
-        "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
+        "neovim/nvim-lspconfig",
         'hrsh7th/cmp-nvim-lsp',
         'hrsh7th/cmp-buffer',
         'hrsh7th/cmp-path',
@@ -22,7 +22,7 @@ return {
         })
         require("mason").setup()
         require("mason-lspconfig").setup({
-            ensure_installed = { "lua_ls", "rust_analyzer", "tsserver", "gopls", "terraformls" },
+            ensure_installed = { "lua_ls", "rust_analyzer", "ts_ls", "gopls", "terraformls" },
             handlers = {
                 function(server_name)
                     require("lspconfig")[server_name].setup {}
@@ -49,7 +49,7 @@ return {
         cmp.setup({
             snippet = {
                 expand = function(args)
-                    vim.fn["vsnip#anonymous"](args.body)
+                    --                    vim.fn["vsnip#anonymous"](args.body)
                     require('luasnip').lsp_expand(args.body)
                 end,
             },

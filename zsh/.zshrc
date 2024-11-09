@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$PATH:/usr/local/.go/bin
+export PATH=$PATH:/usr/local/go/bin
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.cargo/bing:$PATH
 PATH="$PATH":"$HOME/.local/scripts/"
@@ -156,3 +156,11 @@ _gt_yargs_completions()
 compdef _gt_yargs_completions gt
 ###-end-gt-completions-###
 
+
+# fnm
+FNM_PATH="/home/bobby/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/home/bobby/.local/share/fnm:$PATH"
+  eval "`fnm env`"
+fi
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
