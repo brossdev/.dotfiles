@@ -25,3 +25,7 @@ colors:
     cyan:    '0x3FDCEE'
     white:   '0xBEBEC1'
   indexed_colors: []
+font:
+  normal:
+    family: "MesloLGS Nerd Font"
+    style: Regular

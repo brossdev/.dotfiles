@@ -164,3 +164,4 @@ if [ -d "$FNM_PATH" ]; then
   eval "`fnm env`"
 fi
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+source ~/powerlevel10k/powerlevel10k.zsh-theme
