@@ -2,7 +2,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     config = function()
         require('nvim-treesitter.configs').setup({
-            ensure_installed = { "vimdoc", "typescript", "javascript", "json", "html", "css", "bash", "lua", "rust", "go", "sql" },
+            ensure_installed = { "vimdoc", "typescript", "javascript", "json", "html", "css", "bash", "lua", "rust", "go", "sql", "python" },
             auto_install = true,
             indent = { enable = true },
             highlight = { enable = true, additional_vim_regex_highlighting = 'markdown' },
